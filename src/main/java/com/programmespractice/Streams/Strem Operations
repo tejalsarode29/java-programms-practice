@@ -1,0 +1,73 @@
+Types of Stream Operation
+1) Intermidiate Operation (Lazy Evolution)
+2)Terminal Operation     (Eager Evolution)
+3)Short-Circuit Operation
+
+1)Intermidiate Operation         2)Terminal Operation              3)Short-Circuit Operation
+       |                                    |                                   |
+    filter()                            collect()                         anyMatch()
+     map()                              foreach()                         findfirst()
+    sorted()                            match()
+                                        count()
+                                        reduce()
+                                        min()
+                                        max()
+
+--------------------------------------------------------------
+Q - what is Stream
+1na -A Stream in Java 8 is a sequence of elements that can be processed in parallel or sequentially.
+     Streams allow you to perform functional-style operations on collections of objects (e.g., List, Set).
+     The Stream API was introduced to simplify working with data and allows for writing concise and expressive code for filtering, mapping, and processing data.
+
+     Stream Pipeline: A Stream pipeline consists of:
+     Source (e.g., Collection, Arrays, I/O channels)
+     Intermediate operations (e.g., filter(), map()) – Lazily evaluated.
+
+Terminal operation (e.g., collect(), forEach(), reduce()) – Triggers the processing.
+----------------------------------------------------------------------------------------------
+
+Q - difference between collection and Stream
+
+Feature           	Collection	                                            Stream
+
+Storage	           Stores data directly	                        Does not store data
+Mutability	        Mutable (modifiable)	                       Immutable (cannot modify the source)
+Evaluation	        Eager evaluation (immediate)	            Lazy evaluation (processed on terminal op)
+Operations	        Direct operations on data                  Functional operations (map, filter, reduce)
+                     (add, remove)	                           
+Parallelism	        Manual parallelism (e.g., threads)	       Built-in parallelism (using parallel())
+Performance	        Depends on manual optimization	           Can be more efficient with large data using parallel streams
+Use Case	           Store and manipulate data	               Process data in a functional style
+
+----------------------------------------------------------------------------------------------
+
+Q - squential stream and parallel stream-
+ans- Streams can be computed in squential and parallel way
+squential computation can be perform one by one in order
+parallel computaion can be perform simultaneously
+
+List<String> list = Arrays.asList("A","B","C");
+list.stream() //sequential stream
+list.parallelStream() //parallel stream
+ 
+ ---------- -------------------------------------------------------------------
+Q -Why Use Primitive Streams?
+Performance: Primitive streams (IntStream, LongStream, DoubleStream) avoid the overhead of boxing and unboxing associated with objects. They are designed to directly handle primitive types.
+
+Efficiency: When performing operations on large datasets, working with primitive streams is more efficient than using regular object streams.
+
+--------------------------------------------------------------------------------------------
+Q ways to obtain stream instance
+1)from collection using stream()
+List<String> list = List.of("apple", "banana", "cherry");
+Stream<String> stream = list.stream();
+
+2) from array using Arrays.stream(array)
+String[] array = {"apple", "banana", "cherry"};
+Stream<String> stream = Arrays.stream(array);
+
+3)From a single element using Stream.of()
+Stream<String> stream = Stream.of("apple", "banana", "cherry");
+--------------------------------------------------------------------------------------------
+
+
