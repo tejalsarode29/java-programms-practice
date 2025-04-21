@@ -1,5 +1,8 @@
 package com.programmespractice.Streams;
 
+
+import java.util.Arrays;
+//this is product class
 public class Product {
 
     private int id;
