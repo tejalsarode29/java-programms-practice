@@ -1,6 +1,6 @@
 package com.programmespractice.Streams;
 
-
+//this is a person calss
 public class Person {
     private int id;
     private String name;
@@ -28,6 +28,7 @@ public class Person {
     public void setAge(int age) {
         this.age = age;
     }
+
 
 
 }
