@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+
+// this is my change 
 public class productListtoMap {
     public static void main(String[] args) {
         List<Product> list = Arrays.asList(new Product(1, "CD", 3000),
